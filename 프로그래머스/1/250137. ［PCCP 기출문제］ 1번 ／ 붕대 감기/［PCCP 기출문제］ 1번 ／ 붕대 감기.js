@@ -11,16 +11,15 @@ function solution(bandage, health, attacks) {
             successCount = 0;
         } else {
             if(health < max) {
-                if(max - health < bandage[1]) health += max - health;
-                else health += bandage[1];
+                health += bandage[1];
                 successCount++;
                 if(successCount === bandage[0]){
-                    if(max - health < bandage[2]) health += max - health;
-                    else health += bandage[2];
+                    health += bandage[2];
                     successCount = 0;
                 }
             }
-        } 
+        }
+        if(health > max) health = max;
 
     }
     return health > 0 ? health : -1;
